@@ -1,0 +1,15 @@
+mat-form-field {
+    position: relative;
+}
+
+.percentage-input {
+    padding-right: 0;
+}
+
+.percentage-symbol {
+    position: absolute;
+    left: 28px;
+    bottom: 16px;
+    font-size: 20px;
+    font-weight: 500;
+}
