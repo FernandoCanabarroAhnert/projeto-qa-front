@@ -49,12 +49,11 @@ export class ColaboradorFormDialog implements OnInit {
         matricula: this.data.colaborador.matricula,
         salarioBase: this.data.colaborador.salarioBase.toString().replace('.', ','),
         tipoColaborador: this.data.colaborador.tipoColaborador,
-        valorUnidadeProduzida: `${this.data.colaborador.valorUnidadeProduzida}`,
-        quantidadeProduzida: this.data.colaborador.quantidadeProduzida,
-        valorVendas: `${this.data.colaborador.valorVendas}`,
-        porcentagemComissao: `${this.data.colaborador.porcentagemComissao}`,
+        valorUnidadeProduzida: this.data.colaborador.valorUnidadeProduzida ? `${this.data.colaborador.valorUnidadeProduzida}` : null,
+        quantidadeProduzida: this.data.colaborador.quantidadeProduzida ?? null,
+        valorVendas: this.data.colaborador.valorVendas ? `${this.data.colaborador.valorVendas}` : null,
+        porcentagemComissao: this.data.colaborador.porcentagemComissao ? `${this.data.colaborador.porcentagemComissao}` : null,
       });
-      this.tipoColaborador.disable();
     }
   }
 
