@@ -1,59 +1,68 @@
-# Front
+# Sistema de Folha de Pagamento – Front-end
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 21.1.4.
+Interface web do Sistema de Folha de Pagamento, desenvolvida no Trabalho Integrador da unidade curricular **Gestão e Qualidade de Software**.
 
-## Development server
+Pela interface, o administrador cadastra, consulta, edita e exclui colaboradores das categorias Padrão, Comissionado e Produção, e gera a folha de pagamento e o relatório resumido. Os cálculos e as validações ficam no back-end; a interface exibe os dados e envia as informações para a API.
 
-To start a local development server, run:
+## Equipe
 
-```bash
-ng serve
+- Eduardo Gladzik
+- Fernando Canabarro
+- Luan Ribeiro
+- Pedro Marin
+
+## Tecnologias
+
+- Angular 21 e TypeScript
+- Angular Material
+- Vitest, para os testes
+
+## Estrutura do projeto
+
+```
+src/app        componentes, páginas e serviços de acesso à API
+public/        arquivos estáticos, como imagens e ícones
+angular.json   configuração do Angular
+package.json   dependências do projeto
 ```
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+## Como executar
 
-## Code scaffolding
+Pré-requisitos: Node.js e Angular CLI instalados, e o [back-end](https://github.com/FernandoCanabarroAhnert/projeto-qa-back) em execução.
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+1. Instale as dependências:
 
-```bash
-ng generate component component-name
-```
+   ```bash
+   npm install
+   ```
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+2. Inicie a aplicação:
 
-```bash
-ng generate --help
-```
+   ```bash
+   ng serve
+   ```
 
-## Building
+3. Acesse `http://localhost:4200` no navegador.
 
-To build the project run:
-
-```bash
-ng build
-```
-
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Running unit tests
-
-To execute unit tests with the [Vitest](https://vitest.dev/) test runner, use the following command:
+## Testes
 
 ```bash
 ng test
 ```
 
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
+## Build
 
 ```bash
-ng e2e
+ng build
 ```
 
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
+Os arquivos gerados ficam na pasta `dist/`.
 
-## Additional Resources
+## Padrões de contribuição
 
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+- Cada funcionalidade ou correção é feita em uma branch própria e entra na `main` por pull request revisado por outro integrante.
+- Mensagens de commit no padrão `tipo(escopo): descrição`, por exemplo `feat(cadastro): criar formulário de colaborador`. Tipos: `feat`, `fix`, `test`, `docs` e `refactor`.
+
+## Repositórios relacionados
+
+- Back-end: https://github.com/FernandoCanabarroAhnert/projeto-qa-back
