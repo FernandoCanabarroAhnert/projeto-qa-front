@@ -60,7 +60,7 @@
                     </mat-form-field>
                     <mat-form-field>
                         <mat-label>Porcentagem de Comissão</mat-label>
-                        <input type="text" matInput placeholder="Ex. 2,5" maxLength="3" [formControl]="porcentagemComissao"
+                        <input type="text" matInput placeholder="Ex. 2,5" maxLength="4" [formControl]="porcentagemComissao"
                             (input)="onCurrencyInput($event, porcentagemComissao)" class="percentage-input">
                         @if (porcentagemComissao.value && porcentagemComissao.value.length > 0) {
                             <span class="percentage-symbol">%</span>
@@ -84,9 +84,19 @@
                     </mat-form-field>
                     <mat-form-field>
                         <mat-label>Quantidade Produzida</mat-label>
-                        <input type="number" matInput placeholder="Ex. 100" [formControl]="quantidadeProduzida">
+                        <input
+                            type="text"
+                            inputmode="numeric"
+                            matInput
+                            placeholder="Ex. 100"
+                            [formControl]="quantidadeProduzida"
+                            (input)="onIntegerInput($event, quantidadeProduzida)"
+                        >
                         @if (quantidadeProduzida.hasError('required')) {
                             <mat-error>A quantidade produzida é obrigatória</mat-error>
+                        }
+                        @if (quantidadeProduzida.hasError('min')) {
+                            <mat-error>A quantidade deve ser maior que zero</mat-error>
                         }
                     </mat-form-field>
                 }

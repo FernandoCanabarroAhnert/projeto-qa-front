@@ -149,9 +149,18 @@ export class ColaboradorFormDialog implements OnInit {
     });
   }
 
-  validarCampoEspecificoTipoColaborador(tipoColaboradorSelecionado: TipoColaborador, tipoColaboradorCampo: TipoColaborador) {
+  onIntegerInput(event: Event, formControl: FormControl): void {
+    const input = event.target as HTMLInputElement;
+    const value = input.value.replace(/\D/g, '');
+    input.value = value;
+    formControl.setValue(value ? Number(value) : null, {
+        emitEvent: false
+    });
+  }
+
+  validarCampoEspecificoTipoColaborador(tipoColaboradorCampo: TipoColaborador) {
     return (control: AbstractControl): ValidationErrors | null => {
-      const invalid = (control.value == null || control.value === '') && tipoColaboradorSelecionado === tipoColaboradorCampo;
+      const invalid = (control.value == null || control.value === '') && this.tipoColaborador.value === tipoColaboradorCampo;
       return invalid ? {required: true} : null;
     };
   }
@@ -163,14 +172,14 @@ export class ColaboradorFormDialog implements OnInit {
       salarioBase: new FormControl<string | null>(null, [Validators.required]),
       tipoColaborador: new FormControl<string>('PADRAO', [Validators.required]),
       valorUnidadeProduzida: new FormControl<number | null>(null),
-      quantidadeProduzida: new FormControl<number | null>(null),
+      quantidadeProduzida: new FormControl<number | null>(null, [Validators.min(1)]),
       valorVendas: new FormControl<number | null>(null),
       porcentagemComissao: new FormControl<number | null>(null),
     })
-    this.valorUnidadeProduzida.setValidators(this.validarCampoEspecificoTipoColaborador(this.tipoColaborador.value, 'PRODUCAO'));
-    this.quantidadeProduzida.setValidators(this.validarCampoEspecificoTipoColaborador(this.tipoColaborador.value, 'PRODUCAO'));
-    this.valorVendas.setValidators(this.validarCampoEspecificoTipoColaborador(this.tipoColaborador.value, 'COMISSIONADO'));
-    this.porcentagemComissao.setValidators(this.validarCampoEspecificoTipoColaborador(this.tipoColaborador.value, 'COMISSIONADO'));
+    this.valorUnidadeProduzida.setValidators(this.validarCampoEspecificoTipoColaborador('PRODUCAO'));
+    this.quantidadeProduzida.setValidators(this.validarCampoEspecificoTipoColaborador('PRODUCAO'));
+    this.valorVendas.setValidators(this.validarCampoEspecificoTipoColaborador('COMISSIONADO'));
+    this.porcentagemComissao.setValidators(this.validarCampoEspecificoTipoColaborador('COMISSIONADO'));
   }
 
 }
