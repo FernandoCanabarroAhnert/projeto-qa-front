@@ -94,16 +94,16 @@ export class Home implements AfterViewInit {
       this.colaboradorService.criar(result).pipe(take(1)).subscribe({
         next: () => {
           this.buscarColaboradores();
-          this.snackBarService.openSnackBar('Colaborador adicionado com sucesso.');
+          this.snackBarService.openSnackBar('Colaborador cadastrado com sucesso.');
         },
         error: (err: HttpErrorResponse) => {
           const BAD_REQUEST_ERROR = 400;
           const CONFLICT_ERROR = 409;
           if (err.status === BAD_REQUEST_ERROR) {
-            this.snackBarService.openSnackBar('Erro ao adicionar colaborador. Verifique os dados e tente novamente.');
+            this.snackBarService.openSnackBar('Erro ao cadastrar colaborador. Verifique os dados e tente novamente.');
           }
           if (err.status === CONFLICT_ERROR) {
-            this.snackBarService.openSnackBar('Erro ao adicionar colaborador. Matrícula já existente.');
+            this.snackBarService.openSnackBar('Erro ao cadastrar colaborador. Matrícula já existente.');
           }
         }
       })
@@ -155,7 +155,7 @@ export class Home implements AfterViewInit {
       if (!result) return;
       this.colaboradorService.deletar(id).pipe(take(1)).subscribe({
         next: () => {
-          this.snackBarService.openSnackBar('Colaborador excluído com sucesso.');
+          this.snackBarService.openSnackBar('Cadastro excluído com sucesso.');
           this.buscarColaboradores();
         },
         error: (err: HttpErrorResponse) => {

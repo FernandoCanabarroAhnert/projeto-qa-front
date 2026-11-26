@@ -206,7 +206,7 @@ describe('Home', () => {
       expect(colaboradorServiceMock.criar).toHaveBeenCalledWith(dadosForm);
       expect(colaboradorServiceMock.listar).toHaveBeenCalledTimes(2);
       expect(snackBarMock.openSnackBar).toHaveBeenCalledWith(
-        'Colaborador adicionado com sucesso.'
+        'Colaborador cadastrado com sucesso.'
       );
     });
 
@@ -229,7 +229,7 @@ describe('Home', () => {
       component.adicionarColaborador();
 
       expect(snackBarMock.openSnackBar).toHaveBeenCalledWith(
-        'Erro ao adicionar colaborador. Verifique os dados e tente novamente.'
+        'Erro ao cadastrar colaborador. Verifique os dados e tente novamente.'
       );
     });
 
@@ -243,7 +243,7 @@ describe('Home', () => {
       component.adicionarColaborador();
 
       expect(snackBarMock.openSnackBar).toHaveBeenCalledWith(
-        'Erro ao adicionar colaborador. Matrícula já existente.'
+        'Erro ao cadastrar colaborador. Matrícula já existente.'
       );
     });
   });
@@ -344,7 +344,7 @@ describe('Home', () => {
 
       expect(colaboradorServiceMock.deletar).toHaveBeenCalledWith(1);
       expect(snackBarMock.openSnackBar).toHaveBeenCalledWith(
-        'Colaborador excluído com sucesso.'
+        'Cadastro excluído com sucesso.'
       );
       expect(colaboradorServiceMock.listar).toHaveBeenCalledTimes(2);
     });
